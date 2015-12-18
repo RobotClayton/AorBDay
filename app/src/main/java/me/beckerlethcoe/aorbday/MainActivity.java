@@ -56,16 +56,19 @@ public class MainActivity extends AppCompatActivity {
         boolean isHoliday = false;
 
         //weekend checker
-        if(cal.getTime().equals(Calendar.SATURDAY) || cal.getTime().equals(Calendar.SUNDAY)){
-            //It's the weekend :-)
+        if(cal.get(Calendar.DAY_OF_WEEK) == 1 || cal.get(Calendar.DAY_OF_WEEK) == 7){
+            //It's Saturday or Sunday.... AKA the weekend :)
             isWeekend = true;
         }else{
             isWeekend = false;
         }
 
         //holiday checker
-        //if(cal.getTime().equals(Calendar.))
-
+        if(cal.get(Calendar.DAY_OF_YEAR) == 359){
+            isHoliday = true;
+        }else{
+            isHoliday = false;
+        }
         return (!isWeekend && !isHoliday);
     }
 
